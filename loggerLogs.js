@@ -13,6 +13,7 @@ async function registerMessage(editor, type, loggerNameParam = "logger") {
   const document = editor.document;
   const config = vscode.workspace.getConfiguration("loggerLogs");
   const wrapLogMessage = config.wrapLogMessage || false;
+  const logMessageEvent = config.logMessageEvent || "";
   const logMessagePrefix =
     config.logMessagePrefix.length > 0 ? config.logMessagePrefix : "LL";
   let loggerName =
@@ -47,6 +48,7 @@ async function registerMessage(editor, type, loggerNameParam = "logger") {
             lineOfSelectedVar,
             wrapLogMessage,
             logMessagePrefix,
+            logMessageEvent,
             quote,
             addSemicolonInTheEnd,
             insertEnclosingClass,

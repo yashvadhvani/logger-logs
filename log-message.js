@@ -26,6 +26,7 @@ function message(
   lineOfSelectedVar,
   wrapLogMessage,
   logMessagePrefix,
+  logMessageEvent,
   quote,
   addSemicolonInTheEnd,
   insertEnclosingClass,
@@ -47,14 +48,15 @@ function message(
   const lineOfLogMsg = logMessageLine(document, lineOfSelectedVar, selectedVar);
   const spacesBeforeMsg = spaces(document, lineOfSelectedVar, tabSize);
   const semicolon = addSemicolonInTheEnd ? ";" : "";
-  const debuggingMsg = `${loggerName}.${type}(${quote}${logMessagePrefix}: ${
+  const event = logMessageEvent ? `${logMessageEvent}, ` : '';
+  const debuggingMsg = `${loggerName}.${type}(${event}${quote}${logMessagePrefix}: ${
     insertEnclosingClass ? classThatEncloseTheVar : ""
   }${
     insertEnclosingFunction ? funcThatEncloseTheVar : ""
   }${selectedVar}${quote}, ${selectedVar})${semicolon}`;
   if (wrapLogMessage) {
     // 16 represents the length of logger.type("");
-    const wrappingMsg = `${loggerName}.${type}(${quote}${logMessagePrefix}: ${"-".repeat(
+    const wrappingMsg = `${loggerName}.${type}(${event}${quote}${logMessagePrefix}: ${"-".repeat(
       debuggingMsg.length - 16
     )}${quote})${semicolon}`;
     return `${
