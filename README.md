@@ -24,6 +24,7 @@
 5. loggerLogs.insertEnclosingFunction : Whether to insert or not the enclosing function of the selected variable in the log message.
 6. loggerLogs.quote : Double quotes, single quotes or backtick
 7. loggerLogs.loggerName : The name/type of the logger variable.
+8. loggerLogs.logMessageEvent : Event for the log statement, which is used production, such as 'LOG', 'EXCEPTION', 'FUNCENTRY', 'FUNCEXIT' etc. This is totally user defined value.
 
 # Inspiration
 https://github.com/SGoodchild93/turbo-Logger-log
